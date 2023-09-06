@@ -1,3 +1,3 @@
 locals {
-  ecs-name = "rahnuma-terraform"
+  ecs-name = "google-terraform"
 }

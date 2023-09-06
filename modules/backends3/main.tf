@@ -1,5 +1,11 @@
+# Usually recommended to not do this method instead make it byself
+
+#This is basically for state storing
+
+
+
 resource "aws_s3_bucket" "main_s3_bucket" {
-  bucket = "rahuma-terraform-state"
+  bucket = "google-terraform-state"
 }
 
 resource "aws_s3_bucket_server_side_encryption_configuration" "main_s3_bucket_encryption" {

@@ -2,34 +2,31 @@ app_name         = "google"
 environment_name = "terraform"
 
 
-vpc_cidr = "10.1.0.0/16"
+vpc_cidr = #add ip cidr
 subnets-public = {
   "public_subnet1" = {
-    cidr = "10.1.0.0/24"
+    cidr = #add ip1
   },
   "public_subnet2" = {
-    cidr = "10.1.10.0/24"
-  }
-  "public_subnet3" = {
-    cidr = "10.1.90.0/24"
+    cidr = #add ip2
   }
 }
 
 subnets-private = {
   "private_subnet1" = {
-    cidr = "10.1.20.0/24"
+    cidr = #add ip1
   },
   "private_subnet2" = {
-    cidr = "10.1.30.0/24"
+    cidr = #add ip2
   }
 }
 
 subnets-db = {
   "db_subnet1" = {
-    cidr = "10.1.40.0/24"
+    cidr = #add ip1
   },
   "db_subnet2" = {
-    cidr = "10.1.50.0/24"
+    cidr = #add ip2
   }
 }
 
@@ -63,8 +60,8 @@ db_properties = {
     allocated_storage   = 30,
     instance_class      = "db.t3.micro",
     engine              = "postgres",
-    username            = "terraformdbadmin",
-    password            = "Rahnumadb123!terr",
+    username            = #add username,
+    password            = #add password,
     skip_final_snapshot = true
   }
 }
@@ -76,9 +73,9 @@ ecs_task_definition_properties = {
   network_mode             = "awsvpc"
   cpu                      = "256"
   memory                   = "512"
-  execution_role_arn       = "arn:aws:iam::881011112570:role/rahnuma-apiExecutionRole"
+  execution_role_arn       = "arn:aws:iam::881011112570:role/addnamehere"
   requires_compatibilities = ["EC2", "FARGATE"]
-  container_image          = "881011112570.dkr.ecr.us-east-1.amazonaws.com/rdh:104"
+  container_image          = #add container image
   container_cpu            = 0
   container_memory         = 512
   container_port           = 3000
@@ -143,15 +140,9 @@ main_securitygroup_ingress = [
     from_port   = 5432
     to_port     = 5432
     protocol    = "tcp"
-    cidr_blocks = ["10.1.0.0/16"]
+    cidr_blocks = #network cidr
   },
-  {
-    description = "jenkins"
-    from_port   = 5432
-    to_port     = 5432
-    protocol    = "tcp"
-    cidr_blocks = ["193.70.111.124/32"]
-  }
+  
 ]
 
 main_securitygroup_egress = [
@@ -169,7 +160,7 @@ main_load_balancer_sg_ingress = [
     to_port     = 80
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
-    description = "Dev Platform Traffic"
+    description = "Outside Traffic"
   }
 ]
 

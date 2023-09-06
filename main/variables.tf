@@ -96,7 +96,7 @@ variable "db_properties" {
 
   }))
   default = {
-    "db1" = { allocated_storage = 30, instance_class = "db.t3.micro", engine = "postgres", username = "dbadmin", password = "Rahnumadb123!", skip_final_snapshot = true }
+    "db1" = { allocated_storage = 30, instance_class = "db.t3.micro", engine = "postgres", username = "username", password = "password", skip_final_snapshot = true }
   }
 }
 
